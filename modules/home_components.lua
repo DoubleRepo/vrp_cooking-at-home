@@ -25,7 +25,7 @@ local function kitchen_create(owner_id, stype, sid, cid, config, data, x, y, z, 
     if user_id ~= nil then
       -- build menu
       local menu = {name="Kitchen",css={top = "75px", header_color="rgba(0,255,125,0.75)"}}
-	  menu["Create scrambled eggs with bacon "] = {function(player, choice) cook(player, "egg", "bacon", "eggbac", "scrambled eggs with bacon", 1, 1, 1) end, "Ingredients: one egg and  one bacon."}
+	  menu["Scrambled eggs & bacon "] = {function(player, choice) cook(player, "egg", "bacon", "eggbac", "scrambled eggs with bacon", 1, 1, 1) end, "Ingredients: one egg and  one bacon."}
       -- open the menu
       vRP.openMenu(player,menu)
     end
