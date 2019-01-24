@@ -3,14 +3,13 @@
 local function kitchen_create(owner_id, stype, sid, cid, config, data, x, y, z, player)
 
   local function cook(player, ingrd, ingrd2, food, name, amount1, amount2, amountf)
-	local seq = {  {"amb@prop_human_bbq@male@base","base",1}  }
 	local user_id = vRP.getUserId(player)
 	if user_id ~= nil then
       if vRP.getInventoryItemAmount(user_id, ingrd) > 0 and vRP.getInventoryItemAmount(user_id, ingrd2) > 0 then
 		vRP.tryGetInventoryItem(user_id,ingrd,amount1)
 		vRP.tryGetInventoryItem(user_id,ingrd2,amount2)
 		vRP.giveInventoryItem(user_id,food,amountf)
-		vRPclient.playAnim(player, {true, seq, false})
+		vRPclient.playAnim(player, {true, {{"amb@prop_human_bbq@male@base","base",1}}, false})
 		--TriggerClientEvent("pNotify:SendNotification",user_id,{text = "You create" ..name, type = "success", timeout = (3000),layout = "centerRight"})
 		vRPclient.notify(player,{"You cooked "..name})
       else
